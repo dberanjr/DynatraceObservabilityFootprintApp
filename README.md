@@ -1,8 +1,6 @@
-# Getting Started with your Dynatrace App
+# DynatraceObservabilityFootprintApp
 
-This project was bootstrapped with Dynatrace App Toolkit.
-
-It uses React in combination with TypeScript, to provide great developer experience.
+Dynatrace Observability Footprint App — bootstrapped with Dynatrace App Toolkit using React and TypeScript.
 
 ## Available Scripts
 
@@ -22,7 +20,7 @@ Builds the app for production to the `dist` folder. It correctly bundles your ap
 
 Builds the app and deploys it to the specified environment in `app.config.json`.
 
-### `npm run uninstall
+### `npm run uninstall`
 
 Uninstalls the app from the specified environment in `app.config.json`.
 
