@@ -1,2 +1,2 @@
-# DynatraceSREMaturityApp
-DynatraceSREMaturityApp
+# DynatraceObservabilityFootprintApp
+Dynatrace Observability Footprint App
