@@ -3,12 +3,17 @@
   "environmentUrl": "https://your-environment.apps.dynatrace.com/",
   "app": {
     "name": "DynatraceFootprintApp",
-    "version": "0.0.0",
-    "description": "A starting project with routing, fetching data, and charting",
+    "version": "0.3.2",
+    "description": "Observability footprint in one pane of glass",
     "id": "my.dynatrace.footprint.app",
     "scopes": [
-      { "name": "storage:logs:read", "comment": "default template" },
-      { "name": "storage:buckets:read", "comment": "default template" }
+      { "name": "storage:entities:read", "comment": "Smartscape entity counts" },
+      { "name": "storage:spans:read", "comment": "Daily trace volume sampling" },
+      { "name": "storage:logs:read", "comment": "Log queries" },
+      { "name": "storage:metrics:read", "comment": "SFM log ingest metrics" },
+      { "name": "storage:buckets:read", "comment": "Log retention bucket stats" },
+      { "name": "storage:events:read", "comment": "Davis problems for MTTR" },
+      { "name": "storage:system:read", "comment": "System buckets and data objects" }
     ]
   }
 }
