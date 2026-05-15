@@ -2,6 +2,9 @@
 .dt-app/*
 !/.dt-app/deployment.json
 
+# Local app configuration (contains sensitive environment URLs)
+app.config.json
+
 # Compiled output
 /dist
 /build

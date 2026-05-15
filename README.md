@@ -2,6 +2,20 @@
 
 Dynatrace Observability Footprint App — bootstrapped with Dynatrace App Toolkit using React and TypeScript.
 
+## Setup
+
+1. Copy `app.config.example.json` to `app.config.json`:
+   ```bash
+   cp app.config.example.json app.config.json
+   ```
+
+2. Update the `environmentUrl` in `app.config.json` with your Dynatrace environment URL:
+   ```json
+   "environmentUrl": "https://your-environment.apps.dynatrace.com/"
+   ```
+
+**Note:** `app.config.json` is git-ignored to prevent accidental exposure of your environment URLs.
+
 ## Available Scripts
 
 In the project directory, you can run:
