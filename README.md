@@ -1,61 +1,98 @@
-# DynatraceObservabilityFootprintApp
+# Dynatrace Observability Footprint App
 
-Dynatrace Observability Footprint App — bootstrapped with Dynatrace App Toolkit using React and TypeScript.
+> Your entire observability footprint in one pane of glass.
 
-## Setup
+A [Dynatrace App](https://developer.dynatrace.com/) that auto-discovers and visualizes the full scope of what Dynatrace is monitoring in an environment — entity counts, ingested data volumes, and reliability metrics — as a polished, executive-ready overview. Built with the Dynatrace App Toolkit (`dt-app`) on **AppEngine**, using **React**, **TypeScript**, and the **Strato Design System**.
 
-1. Copy `app.config.example.json` to `app.config.json`:
+## Features
+
+- **Footprint overview (Home)** — live tiles for monitored entities (hosts, processes, containers, Kubernetes clusters/nodes/workloads/namespaces, services, web & mobile apps, databases, queues, Lambda functions, synthetic tests, custom devices, and more), data volumes (logs, traces, metrics), and reliability signals such as MTTR.
+- **Architecture view** — a tiered breakdown of the observed technology stack across runtimes and cloud platforms.
+- **Data view** — a closer look at ingested data sources and volumes.
+- **Light & dark themes** with an animated, gradient-driven visual design.
+
+All figures are queried live from **Grail** via **DQL** using the `useDql` React hook — no data is stored by the app.
+
+## Security & configuration
+
+This repository contains **no environment URLs, API keys, or tokens**. The app targets a Dynatrace environment through a local config file that is **git-ignored**.
+
+1. Copy the example config:
    ```bash
    cp app.config.example.json app.config.json
    ```
-
-2. Update the `environmentUrl` in `app.config.json` with your Dynatrace environment URL:
+2. Set your environment URL in `app.config.json`:
    ```json
    "environmentUrl": "https://your-environment.apps.dynatrace.com/"
    ```
 
-**Note:** `app.config.json` is git-ignored to prevent accidental exposure of your environment URLs.
+> `app.config.json` is listed in `.gitignore` to prevent accidental exposure of environment URLs. Never commit it. When changing the environment, also update the `url` in `.vscode/launch.json` if you use the bundled debug configuration.
 
-## Available Scripts
+### Required scopes
 
-In the project directory, you can run:
+The app requests read-only Grail scopes (declared in `app.config.example.json`):
 
-### `npm run start`
+| Scope | Purpose |
+| --- | --- |
+| `storage:entities:read` | Smartscape entity counts |
+| `storage:spans:read` | Daily trace volume sampling |
+| `storage:logs:read` | Log queries |
+| `storage:metrics:read` | Self-monitoring log-ingest metrics |
+| `storage:buckets:read` | Log retention bucket stats |
+| `storage:events:read` | Davis problems for MTTR |
+| `storage:system:read` | System buckets and data objects |
 
-Runs the app in the development mode. A new browser window with your running app will be automatically opened.
+## Getting started
 
-Edit a component file in `ui` and save it. The page will reload when you make changes. You may also see any errors in the console.
+Requires [Node.js](https://nodejs.org/) and access to a Dynatrace environment.
 
-### `npm run build`
+```bash
+npm install
+cp app.config.example.json app.config.json   # then set your environmentUrl
+npm run start
+```
 
-Builds the app for production to the `dist` folder. It correctly bundles your app in production mode and optimizes the build for the best performance.
+## Available scripts
 
-### `npm run deploy`
+| Command | Description |
+| --- | --- |
+| `npm run start` | Run the app in development mode with hot reload; opens a browser automatically. |
+| `npm run build` | Build for production into `dist/`. |
+| `npm run deploy` | Build and deploy to the environment in `app.config.json`. |
+| `npm run uninstall` | Uninstall the app from the configured environment. |
+| `npm run generate:function` | Scaffold a new serverless function in `api/`. |
+| `npm run update` | Update `@dynatrace`-scoped packages and apply migrations. |
+| `npm run info` | Print CLI and environment information. |
+| `npm run help` | Print Dynatrace App Toolkit help. |
 
-Builds the app and deploys it to the specified environment in `app.config.json`.
+## Project structure
 
-### `npm run uninstall`
+```
+ui/
+  app/
+    App.tsx              Routes: Home, Architecture, Data
+    pages/               Home, Architecture, Data views
+    components/          Tiles, cards, icons, header, visual effects
+    hooks/               useFootprintData, useArchitectureData (DQL queries)
+    theme/               Palette, tier colors, theme provider
+  assets/                Logos and imagery
+app.config.example.json  Template app config (copy to app.config.json)
+AGENTS.md                Architecture & conventions for AI coding agents
+```
 
-Uninstalls the app from the specified environment in `app.config.json`.
+## Tech stack
 
-### `npm run generate:function`
-
-Generates a new serverless function for your app in the `api` folder.
-
-### `npm run update`
-
-Updates @dynatrace-scoped packages to the latest version and applies automatic migrations.
-
-### `npm run info`
-
-Outputs the CLI and environment information.
-
-### `npm run help`
-
-Outputs help for the Dynatrace App Toolkit.
+- **React + TypeScript** UI
+- **Strato Design System** (`@dynatrace/strato-components`, `-preview`, `-design-tokens`, `-icons`)
+- **Dynatrace SDK** (`@dynatrace-sdk/react-hooks`, `@dynatrace-sdk/client-query`, `@dynatrace-sdk/app-environment`)
+- **Dynatrace App Toolkit** (`dt-app`)
 
 ## Learn more
 
-You can find more information on how to use all the features of the new Dynatrace Platform in [Dynatrace Developer](https://dt-url.net/developers).
+- [Dynatrace Developer](https://dt-url.net/developers)
+- [Dynatrace Query Language (DQL)](https://docs.dynatrace.com/docs/discover-dynatrace/references/dynatrace-query-language)
+- [React documentation](https://react.dev/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
+
+Licensed under the terms in [LICENSE](LICENSE).
