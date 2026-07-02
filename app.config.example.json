@@ -3,9 +3,10 @@
   "environmentUrl": "https://your-environment.apps.dynatrace.com/",
   "app": {
     "name": "DynatraceFootprintApp",
-    "version": "0.3.2",
+    "version": "0.3.5",
     "description": "Observability footprint in one pane of glass",
     "id": "my.dynatrace.footprint.app",
+    "icon": "ui/assets/app-icon.svg",
     "scopes": [
       { "name": "storage:entities:read", "comment": "Smartscape entity counts" },
       { "name": "storage:spans:read", "comment": "Daily trace volume sampling" },

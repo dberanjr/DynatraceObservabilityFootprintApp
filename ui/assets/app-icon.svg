@@ -1,0 +1,26 @@
+<svg width="128" height="128" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dynatrace Observability Footprint">
+  <defs>
+    <linearGradient id="fpBg" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1C5BE5"/>
+      <stop offset="0.55" stop-color="#54C8E9"/>
+      <stop offset="1" stop-color="#73BE28"/>
+    </linearGradient>
+    <linearGradient id="fpGlow" x1="0" y1="0" x2="0" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#fpBg)"/>
+  <rect x="4" y="4" width="120" height="120" rx="30" fill="url(#fpGlow)"/>
+  <g fill="#ffffff">
+    <!-- sole -->
+    <path d="M64 44c14 0 23 11 23 27 0 12-6 21-6 31 0 7-6 12-17 12s-17-5-17-12c0-10-6-19-6-31 0-16 9-27 23-27z" opacity="0.96"/>
+    <!-- heel accent -->
+    <ellipse cx="64" cy="103" rx="13" ry="9" fill="#ffffff" opacity="0.55"/>
+    <!-- toes -->
+    <circle cx="43" cy="40" r="7"/>
+    <circle cx="57" cy="31" r="7.5"/>
+    <circle cx="72" cy="31" r="7.5"/>
+    <circle cx="86" cy="40" r="7"/>
+  </g>
+</svg>

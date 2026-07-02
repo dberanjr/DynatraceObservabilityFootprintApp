@@ -1,8 +1,12 @@
 {
   "name": "dynatrace-footprint-app",
-  "version": "0.0.0",
+  "version": "0.3.5",
   "description": "A starting project with routing, fetching data, and charting",
   "scripts": {
+    "build:info": "node scripts/build-info.mjs",
+    "prebuild": "node scripts/build-info.mjs",
+    "predeploy": "node scripts/build-info.mjs",
+    "prestart": "node scripts/build-info.mjs",
     "build": "dt-app build",
     "start": "dt-app dev",
     "create:function": "dt-app function create",

@@ -5,6 +5,9 @@
 # Local app configuration (contains sensitive environment URLs)
 app.config.json
 
+# Auto-generated build metadata (scripts/build-info.mjs)
+/ui/app/generated
+
 # Compiled output
 /dist
 /build
